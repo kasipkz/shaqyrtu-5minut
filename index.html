@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#102b25">
+  <title>Ақжол Такси — Жолың ашық болсын!</title>
+  <style>
+    :root{--green:#12372d;--green2:#1d5947;--gold:#e8b84b;--cream:#f7f5ef;--ink:#17231f;--muted:#6d7772;--white:#fff;--line:#e5e9e5;--shadow:0 16px 45px rgba(15,45,35,.10)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Arial,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}.wrap{width:min(1120px,calc(100% - 32px));margin:auto}
+    header{background:var(--green);color:white;position:sticky;top:0;z-index:10;box-shadow:0 5px 20px #071d1733}.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:12px;color:white;text-decoration:none;font-weight:900;font-size:21px;letter-spacing:.2px}.brand-mark{width:42px;height:42px;border-radius:14px;background:var(--gold);display:grid;place-items:center;color:var(--green);font-size:23px}.navlinks{display:flex;gap:24px;align-items:center}.navlinks a{color:#e9f1ed;text-decoration:none;font-size:14px}.navlinks a:hover{color:var(--gold)}.nav-btn,.primary{border:0;border-radius:12px;background:var(--gold);color:#182b23;font-weight:800;padding:12px 18px}.menu{display:none;background:none;border:1px solid #ffffff55;color:white;border-radius:10px;padding:8px 11px}
+    .hero{background:linear-gradient(120deg,#102e26 0%,#1d5947 100%);color:white;padding:64px 0 74px;overflow:hidden;position:relative}.hero:after{content:"";position:absolute;width:420px;height:420px;border:1px solid #ffffff18;border-radius:50%;right:-90px;top:-150px;box-shadow:0 0 0 45px #ffffff08,0 0 0 90px #ffffff05}.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;position:relative;z-index:1}.eyebrow{color:var(--gold);font-weight:800;letter-spacing:2px;text-transform:uppercase;font-size:12px}.hero h1{font-size:clamp(38px,6vw,64px);line-height:1.05;margin:14px 0 18px;max-width:650px}.hero p{color:#d6e4dc;max-width:550px;font-size:18px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.secondary{border:1px solid #ffffff66;border-radius:12px;color:white;background:#ffffff0d;padding:12px 18px;font-weight:700;text-decoration:none}.hero-visual{min-height:300px;border-radius:28px;background:linear-gradient(145deg,#ffffff1c,#ffffff08);border:1px solid #ffffff30;display:grid;place-items:center;position:relative}.road{width:75%;height:210px;border-radius:100px;background:#172c26;transform:rotate(-18deg);border:3px dashed #ffffff45;display:grid;place-items:center}.car{font-size:92px;filter:drop-shadow(0 15px 12px #0005);transform:rotate(18deg)}.floating{position:absolute;background:white;color:var(--ink);border-radius:14px;padding:12px 15px;box-shadow:var(--shadow);font-weight:800;font-size:13px}.float-one{top:26px;left:18px}.float-two{right:16px;bottom:24px}
+    .section{padding:62px 0}.section-head{text-align:center;margin-bottom:30px}.section-head h2{font-size:clamp(27px,4vw,38px);margin:6px 0 8px;color:var(--green)}.section-head p{margin:0;color:var(--muted)}.booking-layout{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;align-items:start}.panel{background:white;border:1px solid var(--line);border-radius:22px;padding:25px;box-shadow:var(--shadow)}.panel h3{margin:0 0 20px;font-size:21px;color:var(--green)}.field{margin-bottom:15px}.field label{display:block;font-size:13px;font-weight:800;margin-bottom:7px;color:#34443d}.field input,.field select,.field textarea{width:100%;border:1px solid #dce3de;background:#fbfcfa;border-radius:11px;padding:13px 14px;outline:none;color:var(--ink)}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--green2);box-shadow:0 0 0 3px #1d59471a}.two{display:grid;grid-template-columns:1fr 1fr;gap:13px}.estimate{background:#f3f7f3;border-radius:15px;padding:17px;margin:18px 0;display:flex;justify-content:space-between;align-items:center;gap:10px}.estimate small{display:block;color:var(--muted)}.estimate strong{font-size:25px;color:var(--green)}.full{width:100%;padding:15px}.note{font-size:12px;color:var(--muted);margin:12px 0 0}.side-card{background:var(--green);color:white;border-radius:22px;padding:25px;box-shadow:var(--shadow)}.side-card h3{margin:0 0 8px;font-size:22px}.side-card>p{color:#d0e0d7;margin-top:0}.feature{display:flex;gap:13px;padding:15px 0;border-top:1px solid #ffffff22}.feature-icon{width:38px;height:38px;flex:0 0 38px;border-radius:12px;background:#ffffff17;display:grid;place-items:center;font-size:19px}.feature b{display:block}.feature span{font-size:13px;color:#d0e0d7}.status{display:inline-flex;align-items:center;gap:7px;background:#dff4e5;color:#17643a;border-radius:30px;padding:7px 11px;font-size:12px;font-weight:800}.dot{width:7px;height:7px;background:#28a45a;border-radius:50%}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.step{background:white;border:1px solid var(--line);border-radius:18px;padding:23px}.step-num{width:42px;height:42px;background:#f8edcf;color:#78540c;border-radius:13px;display:grid;place-items:center;font-weight:900}.step h3{margin:14px 0 6px;color:var(--green)}.step p{margin:0;color:var(--muted);font-size:14px}.ride-list{display:grid;gap:12px}.ride{border:1px solid var(--line);border-radius:14px;padding:14px;display:flex;justify-content:space-between;gap:15px;align-items:center}.ride strong{color:var(--green)}.ride small{display:block;color:var(--muted)}.ride-actions{display:flex;gap:7px;flex-wrap:wrap}.mini{border:1px solid var(--line);background:white;border-radius:9px;padding:7px 10px;font-size:12px;font-weight:700}.danger{color:#a33131}.empty{color:var(--muted);text-align:center;padding:22px;background:#fafbf9;border-radius:12px}
+    footer{background:#0d261f;color:#d9e4de;padding:35px 0}.footer-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.footer-row p{margin:5px 0;color:#aebfb5;font-size:13px}.toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,130px);background:#142f27;color:white;padding:13px 18px;border-radius:12px;box-shadow:var(--shadow);z-index:30;transition:.3s;max-width:calc(100% - 30px);text-align:center}.toast.show{transform:translate(-50%,0)}
+    @media(max-width:800px){.hero-grid,.booking-layout{grid-template-columns:1fr}.hero{padding:48px 0}.hero-visual{min-height:230px}.road{height:160px}.car{font-size:70px}.steps{grid-template-columns:1fr}.navlinks{display:none;position:absolute;top:76px;left:0;right:0;background:var(--green);padding:18px 24px 24px;flex-direction:column;align-items:flex-start}.navlinks.open{display:flex}.menu{display:block}.nav-btn{display:none}}
+    @media(max-width:520px){.wrap{width:min(100% - 22px,1120px)}.panel,.side-card{padding:19px}.two{grid-template-columns:1fr}.hero h1{font-size:42px}.hero p{font-size:16px}.section{padding:45px 0}.ride{align-items:flex-start;flex-direction:column}.ride-actions{width:100%}.ride-actions button{flex:1}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#home"><span class="brand-mark">А</span><span>АҚЖОЛ ТАКСИ</span></a>
+    <nav class="navlinks" id="navlinks"><a href="#home">Басты бет</a><a href="#booking">Такси шақыру</a><a href="#how">Қалай жұмыс істейді?</a><a href="#orders">Менің тапсырыстарым</a></nav>
+    <a class="nav-btn" href="#booking">Такси шақыру</a>
+    <button class="menu" id="menuBtn" aria-label="Мәзір">☰</button>
+  </div>
+</header>
+<main>
+  <section class="hero" id="home">
+    <div class="wrap hero-grid">
+      <div><div class="eyebrow">Сапарыңыз сәтті болсын</div><h1>Жолың ашық болсын — Ақжол Такси!</h1><p>Қала ішінде және қалааралық бағыттарда жайлы сапарға тапсырыс беріңіз. Баратын жеріңізді көрсетіңіз — қалғанын бізге қалдырыңыз.</p><div class="hero-actions"><a class="primary" href="#booking">Такси шақыру →</a><a class="secondary" href="#how">Қалай жұмыс істейді?</a></div></div>
+      <div class="hero-visual"><div class="floating float-one">✓ Қарапайым тапсырыс</div><div class="road"><div class="car">🚕</div></div><div class="floating float-two">📍 Межелі орынға дейін</div></div>
+    </div>
+  </section>
+  <section class="section" id="booking">
+    <div class="wrap">
+      <div class="section-head"><div class="eyebrow">Онлайн тапсырыс</div><h2>Қайда барғыңыз келеді?</h2><p>Мәліметтерді толтырып, сапарға тапсырыс қалдырыңыз.</p></div>
+      <div class="booking-layout">
+        <div class="panel">
+          <h3>🚖 Сапар мәліметтері</h3>
+          <form id="bookingForm">
+            <div class="field"><label for="from">Мінетін жеріңіз</label><input id="from" name="from" placeholder="Мысалы: Астана, EXPO" required></div>
+            <div class="field"><label for="to">Түсетін жеріңіз</label><input id="to" name="to" placeholder="Мысалы: Әуежай" required></div>
+            <div class="two"><div class="field"><label for="date">Күні</label><input id="date" type="date" required></div><div class="field"><label for="time">Уақыты</label><input id="time" type="time" required></div></div>
+            <div class="two"><div class="field"><label for="passengers">Жолаушы саны</label><select id="passengers"><option value="1">1 жолаушы</option><option value="2">2 жолаушы</option><option value="3">3 жолаушы</option><option value="4">4 жолаушы</option><option value="5">5 жолаушы</option><option value="6">6 жолаушы</option></select></div><div class="field"><label for="payment">Төлем түрі</label><select id="payment"><option>Қолма-қол</option><option>Kaspi аударымы</option></select></div></div>
+            <div class="field"><label for="phone">Байланыс телефоны</label><input id="phone" type="tel" placeholder="+7 7XX XXX XX XX" required></div>
+            <div class="field"><label for="comment">Қосымша ескерту (міндетті емес)</label><textarea id="comment" rows="2" placeholder="Жүк, балалар орындығы немесе басқа өтініш..."></textarea></div>
+            <div class="estimate"><div><small>Алдын ала жолақы</small><strong id="fare">Бағасын келісу</strong></div><span>💳</span></div>
+            <button class="primary full" type="submit">Тапсырыс беру</button>
+            <p class="note">Бұл демо-нұсқа: тапсырыс осы құрылғыдағы браузерде сақталады. Нақты жүргізушіге жіберу үшін сервер қажет.</p>
+          </form>
+        </div>
+        <aside class="side-card"><span class="status"><span class="dot"></span> Онлайн тапсырыс қабылдау</span><h3 style="margin-top:18px">Ақжол Такси — сенімді сапар серігіңіз</h3><p>Сапарыңызды алдын ала жоспарлап, қажетті мәліметтерді бір жерден жіберіңіз.</p>
+          <div class="feature"><div class="feature-icon">📍</div><div><b>Бағытыңызды көрсетіңіз</b><span>Мінетін және түсетін мекенжайды енгізіңіз.</span></div></div>
+          <div class="feature"><div class="feature-icon">👥</div><div><b>Жолаушы санын таңдаңыз</b><span>Сапарға қатысатын адам санын белгілеңіз.</span></div></div>
+          <div class="feature"><div class="feature-icon">🤝</div><div><b>Жолақыны келісіңіз</b><span>Жүргізушімен бағаны алдын ала нақтылаңыз.</span></div></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="how" style="background:#eef2ed"><div class="wrap"><div class="section-head"><div class="eyebrow">Үш қадам</div><h2>Қалай жұмыс істейді?</h2><p>Такси шақыру оңай әрі түсінікті.</p></div><div class="steps"><article class="step"><div class="step-num">01</div><h3>Бағытты енгізіңіз</h3><p>Қай жерден мінетініңізді және қайда баратыныңызды жазыңыз.</p></article><article class="step"><div class="step-num">02</div><h3>Тапсырыс жіберіңіз</h3><p>Телефон нөміріңізді, уақытты және төлем түрін көрсетіңіз.</p></article><article class="step"><div class="step-num">03</div><h3>Сапарды келісіңіз</h3><p>Тапсырыс мәліметтерін жүргізушімен нақтылап, жолға шығыңыз.</p></article></div></div></section>
+  <section class="section" id="orders"><div class="wrap"><div class="section-head"><div class="eyebrow">Жеке тізім</div><h2>Менің тапсырыстарым</h2><p>Осы браузерде сақталған тапсырыстар.</p></div><div class="panel"><div class="ride-list" id="rideList"><div class="empty">Әзірге тапсырыс жоқ. Алғашқы сапарыңызды жоспарлаңыз.</div></div></div></div></section>
+</main>
+<footer><div class="wrap footer-row"><div><a class="brand" href="#home"><span class="brand-mark">А</span><span>АҚЖОЛ ТАКСИ</span></a><p>Жолың ашық болсын!</p></div><div><b>Байланыс</b><p>Телефон: өз нөміріңізді осы жерге енгізіңіз</p><p>© <span id="year"></span> Ақжол Такси. Барлық құқық қорғалған.</p></div></div></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+  const $ = id => document.getElementById(id);
+  const STORAGE_KEY = 'aqzhol_taxi_orders_v1';
+  const today = new Date();
+  $('date').min = today.toISOString().slice(0,10);
+  $('date').value = today.toISOString().slice(0,10);
+  $('time').value = `${String(today.getHours()).padStart(2,'0')}:${String(today.getMinutes()).padStart(2,'0')}`;
+  $('year').textContent = today.getFullYear();
+  $('menuBtn').addEventListener('click', () => $('navlinks').classList.toggle('open'));
+  document.querySelectorAll('#navlinks a').forEach(a => a.addEventListener('click', () => $('navlinks').classList.remove('open')));
+  function getOrders(){try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]')}catch{return []}}
+  function saveOrders(items){localStorage.setItem(STORAGE_KEY,JSON.stringify(items))}
+  function notify(message){const t=$('toast');t.textContent=message;t.classList.add('show');clearTimeout(notify.timer);notify.timer=setTimeout(()=>t.classList.remove('show'),3000)}
+  function escapeHTML(value){return String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+  function renderOrders(){const orders=getOrders();const list=$('rideList');if(!orders.length){list.innerHTML='<div class="empty">Әзірге тапсырыс жоқ. Алғашқы сапарыңызды жоспарлаңыз.</div>';return}list.innerHTML=orders.slice().reverse().map(o=>`<article class="ride"><div><strong>${escapeHTML(o.from)} → ${escapeHTML(o.to)}</strong><small>${escapeHTML(o.date)} · ${escapeHTML(o.time)} · ${escapeHTML(o.phone)}</small><small>${escapeHTML(o.passengers)} жолаушы · ${escapeHTML(o.payment)} · ${escapeHTML(o.status)}</small></div><div class="ride-actions"><button class="mini" data-copy="${o.id}">Мәліметті көшіру</button><button class="mini danger" data-delete="${o.id}">Өшіру</button></div></article>`).join('')}
+  $('rideList').addEventListener('click',e=>{const del=e.target.closest('[data-delete]');const copy=e.target.closest('[data-copy]');if(del){saveOrders(getOrders().filter(o=>o.id!==del.dataset.delete));renderOrders();notify('Тапсырыс өшірілді.')}if(copy){const o=getOrders().find(x=>x.id===copy.dataset.copy);if(o){const txt=`Ақжол Такси тапсырысы\n${o.from} → ${o.to}\n${o.date} ${o.time}\nТелефон: ${o.phone}\nЖолаушы: ${o.passengers}\nТөлем: ${o.payment}`;if(navigator.clipboard?.writeText){navigator.clipboard.writeText(txt).then(()=>notify('Тапсырыс мәліметі көшірілді.')).catch(()=>notify(txt))}else notify(txt)}}});
+  $('bookingForm').addEventListener('submit',e=>{e.preventDefault();const order={id:Date.now().toString(),from:$('from').value.trim(),to:$('to').value.trim(),date:$('date').value,time:$('time').value,passengers:$('passengers').value,payment:$('payment').value,phone:$('phone').value.trim(),comment:$('comment').value.trim(),status:'Жаңа тапсырыс'};if(!order.from||!order.to||!order.phone){notify('Міндетті жолдарды толтырыңыз.');return}const orders=getOrders();orders.push(order);saveOrders(orders);renderOrders();e.target.reset();$('date').value=today.toISOString().slice(0,10);$('time').value=`${String(today.getHours()).padStart(2,'0')}:${String(today.getMinutes()).padStart(2,'0')}`;notify('Тапсырысыңыз осы құрылғыда сақталды!');$('orders').scrollIntoView({behavior:'smooth'});});
+  renderOrders();
+</script>
+</body>
+</html>
