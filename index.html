@@ -1082,4 +1082,25 @@ try{syncThemeUI()}catch(e){}
 try{initKz()}catch(e){}
 try{initNet()}catch(e){}
 try{initChest()}catch(e){}
+function askCode(){
+  var name = '';
+  var phone = '';
+  var n1 = document.querySelector('input[name="name"]');
+  var p1 = document.querySelector('input[name="phone"]');
+  if(n1) name = n1.value;
+  if(p1) phone = p1.value;
+  if(!name) name = localStorage.getItem('leadName') || 'Белгісіз';
+  if(!phone) phone = localStorage.getItem('leadPhone') || '';
+  var msg = document.getElementById('codeMsg');
+  if(msg){ msg.style.display='block'; msg.innerHTML='⏳ Сұрау жіберілуде...'; }
+  fetch('https://shaqyrtu-5minut.fokuskadam.workers.dev', {
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({ type:'code_request', name:name, phone:phone, message:'Төледім, код сұрау' })
+  }).then(function(){
+    if(msg) msg.innerHTML='✅ Сұрау жіберілді! Администратор Telegram-нан код жібереді. Күтіңіз.';
+  }).catch(function(){
+    if(msg) msg.innerHTML='✅ Сұрау жіберілді! Администратор Telegram-нан код жібереді.';
+  });
+}
 </script></body></html>
