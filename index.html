@@ -1093,14 +1093,17 @@ function askCode(){
   if(!phone) phone = localStorage.getItem('leadPhone') || '';
   var msg = document.getElementById('codeMsg');
   if(msg){ msg.style.display='block'; msg.innerHTML='⏳ Сұрау жіберілуде...'; }
-  fetch('https://shaqyrtu-5minut.fokuskadam.workers.dev', {
+
+  var text = '🔔 Жаңа код сұрау\n👤 Аты: ' + name + '\n📞 Тел: ' + phone + '\n💬 Төледім, код сұрау';
+
+  fetch('https://api.telegram.org/bot' + '9009151361:AAEUTTHMwlUvbxoYo2K5_nThPe4CqI64wZ8' + '/sendMessage', {
     method:'POST',
     headers:{'Content-Type':'application/json'},
-    body: JSON.stringify({ type:'code_request', name:name, phone:phone, message:'Төледім, код сұрау' })
+    body: JSON.stringify({ chat_id: 2052842901, text: text })
   }).then(function(){
     if(msg) msg.innerHTML='✅ Сұрау жіберілді! Администратор Telegram-нан код жібереді. Күтіңіз.';
   }).catch(function(){
-    if(msg) msg.innerHTML='✅ Сұрау жіберілді! Администратор Telegram-нан код жібереді.';
+    if(msg) msg.innerHTML='❌ Жіберілмеді, қайта басып көр.';
   });
 }
 </script></body></html>
