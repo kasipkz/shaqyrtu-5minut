@@ -1093,8 +1093,8 @@ function askCode(){
     else if(!name) name = v;
   });
   // егер табылмаса — адамнан тікелей сұраймыз
-  if(!name || name === 'Белгісіз') name = prompt('Аты-жөніңіз:') || 'Белгісіз';
-  if(!phone) phone = prompt('Телефон номеріңіз: Аты-жөніңіз: ') || '';
+  if(!name || name = prompt('Аты-жөніңіз:') || 'Белгісіз';
+  if(!phone) phone = prompt('Телефон номеріңіз:') || '';
 
   var msg = document.getElementById('codeMsg');
   if(msg){ msg.style.display='block'; msg.innerHTML='⏳ Сұрау жіберілуде...'; }
