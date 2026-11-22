@@ -1094,7 +1094,7 @@ function askCode(){
   });
   // егер табылмаса — адамнан тікелей сұраймыз
   if(!name || name === 'Белгісіз') name = prompt('Аты-жөніңіз:') || 'Белгісіз';
-  if(!phone) phone = prompt('Телефон номеріңіз:') || '';
+  if(!phone) phone = prompt('Телефон номеріңіз: Аты-жөніңіз: ') || '';
 
   var msg = document.getElementById('codeMsg');
   if(msg){ msg.style.display='block'; msg.innerHTML='⏳ Сұрау жіберілуде...'; }
