@@ -1085,12 +1085,17 @@ try{initChest()}catch(e){}
 function askCode(){
   var name = '';
   var phone = '';
-  var n1 = document.querySelector('input[name="name"]');
-  var p1 = document.querySelector('input[name="phone"]');
-  if(n1) name = n1.value;
-  if(p1) phone = p1.value;
-  if(!name) name = localStorage.getItem('leadName') || 'Белгісіз';
-  if(!phone) phone = localStorage.getItem('leadPhone') || '';
+  // барлық input-тарды тексереміз
+  var inputs = document.querySelectorAll('input');
+  inputs.forEach(function(inp){
+    var v = inp.value || '';
+    if(!v) return;
+    if(inp.type === 'tel' || (inp.placeholder||'').toLowerCase().includes('тел') || (inp.name||'').includes('phone') || (inp.name||'').includes('tel')) phone = v;
+    else if((inp.name||'').includes('name') || (inp.placeholder||'').toLowerCase().includes('аты') || (inp.placeholder||'').toLowerCase().includes('есімі')) name = v;
+  });
+  if(!name) name = localStorage.getItem('leadName') || localStorage.getItem('name') || 'Белгісіз';
+  if(!phone) phone = localStorage.getItem('leadPhone') || localStorage.getItem('phone') || '';
+
   var msg = document.getElementById('codeMsg');
   if(msg){ msg.style.display='block'; msg.innerHTML='⏳ Сұрау жіберілуде...'; }
 
@@ -1102,8 +1107,6 @@ function askCode(){
     body: JSON.stringify({ chat_id: 2052842901, text: text })
   }).then(function(){
     if(msg) msg.innerHTML='✅ Сұрау жіберілді! Администратор Telegram-нан код жібереді. Күтіңіз.';
-  }).catch(function(){
-    if(msg) msg.innerHTML='❌ Жіберілмеді, қайта басып көр.';
   });
-}
+  }
 </script></body></html>
