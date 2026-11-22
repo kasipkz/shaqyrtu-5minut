@@ -1083,18 +1083,8 @@ try{initKz()}catch(e){}
 try{initNet()}catch(e){}
 try{initChest()}catch(e){}
 function askCode(){
-  var name = '';
-  var phone = '';
-  var inputs = document.querySelectorAll('input');
-  inputs.forEach(function(inp){
-    var v = (inp.value||'').trim();
-    if(!v) return;
-    if(inp.type === 'tel') phone = v;
-    else if(!name) name = v;
-  });
-  // егер табылмаса — адамнан тікелей сұраймыз
-  if(!name || name = prompt('Аты-жөніңіз:') || 'Белгісіз';
-  if(!phone) phone = prompt('Телефон номеріңіз:') || '';
+  var name = prompt('Аты-жөніңіз:') || 'Белгісіз';
+  var phone = prompt('Телефон номеріңіз:') || '';
 
   var msg = document.getElementById('codeMsg');
   if(msg){ msg.style.display='block'; msg.innerHTML='⏳ Сұрау жіберілуде...'; }
@@ -1108,5 +1098,5 @@ function askCode(){
   }).then(function(){
     if(msg) msg.innerHTML='✅ Сұрау жіберілді! Администратор Telegram-нан код жібереді. Күтіңіз.';
   });
-}
+  }
 </script></body></html>
