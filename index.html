@@ -1098,7 +1098,7 @@ function askCode(){
 
   var msg = document.getElementById('codeMsg');
   if(msg){ msg.style.display='block'; msg.innerHTML='⏳ Сұрау жіберілуде...'; }
-
+try{firebase.database().ref("leads").push({name:name, phone:phone, type:"code_sura", createdAt:Date.now()});}catch(e){}
   var text = '🔔 Жаңа код сұрау\n👤 Аты: ' + name + '\n📞 Тел: ' + phone + '\n💬 Төледім, код сұрау';
 
   fetch('https://api.telegram.org/bot' + '9009151361:AAEUTTHMwlUvbxoYo2K5_nThPe4CqI64wZ8' + '/sendMessage', {
