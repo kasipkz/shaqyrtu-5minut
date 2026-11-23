@@ -1069,7 +1069,7 @@ if(/ортақ желі|желіні/.test(n)&&go)return agDone("open",{to:"net"
 if(/(баға|пакет)/.test(n)&&go)return agDone("open",{to:"price"});
 if(/той түр/.test(n)&&go)return agDone("open",{to:"cats"});
 if(/қазақша әлем/.test(n)&&go)return agDone("open",{to:"kz"});
-if((pl||go)&&md){if(agDone("song",{q:q}))return true;var m=[[/(мөлдір|қазақ әні|қазақша ән|хит)/,0],[/той ән/,1],[/(бала|мультфильм|ертегі)/,2],[/(домбыра|халық)/,3],[/(тілек|бата)/,4],[/(күлкі|әзіл)/,5],[/(би |биі|қара жорға)/,6],[/(табиғат)/,7]].filter(function(x){return x[0].test(n+" ")})[0];if(m&&(pl||/(ән|музыка|клип)/.test(n)))return agDone("music",{sec:m[1]});if(/(музыка|клип)/.test(n)&&pl)return agDone("music",{sec:0})}
+if((pl||go)&&md){if(agDone("song",{q:q}))return true;var m=[[/(Мөлдір Мұқан|қазақ әні|қазақша ән|хит)/,0],[/той ән/,1],[/(бала|мультфильм|ертегі)/,2],[/(домбыра|халық)/,3],[/(тілек|бата)/,4],[/(күлкі|әзіл)/,5],[/(би |биі|қара жорға)/,6],[/(табиғат)/,7]].filter(function(x){return x[0].test(n+" ")})[0];if(m&&(pl||/(ән|музыка|клип)/.test(n)))return agDone("music",{sec:m[1]});if(/(музыка|клип)/.test(n)&&pl)return agDone("music",{sec:0})}
 return false}
 /* ---------- бір хабарламадан шақыру мәліметін алу ---------- */
 function aiExtract(q){var t=String(q||""),n=aiNorm(t),o={},c=null;CATS.forEach(function(x){var r=aiNorm(x.name).slice(0,5);if(!c&&n.indexOf(r)>-1)c=x});if(c)o.cat=c;
@@ -1092,4 +1092,21 @@ try{syncThemeUI()}catch(e){}
 try{initKz()}catch(e){}
 try{initNet()}catch(e){}
 try{initChest()}catch(e){}
+function askCode(){
+  var name = prompt('Аты-жөніңіз:') || 'Белгісіз';
+  var phone = prompt('Телефон номеріңіз:') || '';
+
+  var msg = document.getElementById('codeMsg');
+  if(msg){ msg.style.display='block'; msg.innerHTML='⏳ Сұрау жіберілуде...'; }
+
+  var text = '🔔 Жаңа код сұрау\n👤 Аты: ' + name + '\n📞 Тел: ' + phone + '\n💬 Төледім, код сұрау';
+
+  fetch('https://api.telegram.org/bot' + '9009151361:AAEUTTHMwlUvbxoYo2K5_nThPe4CqI64wZ8' + '/sendMessage', {
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({ chat_id: 2052842901, text: text })
+  }).then(function(){
+    if(msg) msg.innerHTML='✅ Сұрау жіберілді! Администратор Telegram-нан код жібереді. Күтіңіз.';
+  });
+}
 </script></body></html>
